@@ -21,6 +21,7 @@ router.post('/add', function(req, res) {
         fs.mkdirSync(dir);
     }
     const audioFile = dir + sampleFile.name;
+    console.log(audioFile);
     sampleFile.mv(audioFile, function(err) {
         if (err)
             return res.status(500).send(err);

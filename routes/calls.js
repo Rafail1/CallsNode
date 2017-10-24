@@ -9,10 +9,10 @@ const fs = require('fs'),
 
 const router = express.Router();
 
-router.get('/add', function(req, res) {
-    return res.send('rrr');
-});
+
 router.post('/add', function(req, res) {
+    logger(req.files);
+
     if (!req.files)
         return res.status(400).send('No files were uploaded.');
     let sampleFile = req.files['rec'];
@@ -21,11 +21,11 @@ router.post('/add', function(req, res) {
     }
     const json = JSON.parse(req.body.json);
     const dir = config.RECORDS_DIR + json.client + '/';
+
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
     }
     const audioFile = dir + sampleFile.name;
-    logger(audioFile);
     sampleFile.mv(audioFile, function(err) {
         if (err)
             return res.status(500).send(err);

@@ -8,6 +8,9 @@ const fs = require('fs'),
 
 const router = express.Router();
 
+router.get('/add', function(req, res) {
+    return res.send('rrr');
+});
 router.post('/add', function(req, res) {
     if (!req.files)
         return res.status(400).send('No files were uploaded.');

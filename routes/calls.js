@@ -2,6 +2,7 @@
 const fs = require('fs'),
     express = require('express'),
     config = require('../config/config'),
+    logger = require('morgan'),
     mongoose = require('mongoose'),
     CallModel = mongoose.model('Call');
 
@@ -24,7 +25,7 @@ router.post('/add', function(req, res) {
         fs.mkdirSync(dir);
     }
     const audioFile = dir + sampleFile.name;
-    console.log(audioFile);
+    logger(audioFile);
     sampleFile.mv(audioFile, function(err) {
         if (err)
             return res.status(500).send(err);

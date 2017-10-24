@@ -11,13 +11,11 @@ const router = express.Router();
 
 
 router.post('/add', function(req, res) {
-    console.log('add');
 
 
     if (!req.files)
         return res.status(400).send('No files were uploaded.');
     let sampleFile = req.files['rec'];
-    console.log(sampleFile);
 
     if(!sampleFile) {
         return res.status(400).send('No record name.');

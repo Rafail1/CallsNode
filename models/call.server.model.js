@@ -10,7 +10,9 @@ const CallSchema = mongoose.Schema({
 });
 CallSchema.statics.addCall = function (jsonCall) {
     const call = new this(jsonCall);
-    call.save();
+    call.save(function (err, res) {
+        console.log(err, res);
+    });
 };
 
 module.exports = mongoose.model('Call', CallSchema);

@@ -16,8 +16,8 @@ router.post('/add', function(req, res) {
         return res.status(400).send('No record name.');
     }
     const json = JSON.parse(req.body.json);
+    console.log(json);
     const dir = config.RECORDS_DIR + json.client + '/';
-    console.log(dir);
 
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);

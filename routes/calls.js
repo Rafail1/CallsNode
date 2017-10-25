@@ -36,5 +36,6 @@ router.post('/addMissed', function(req, res) {
 });
 router.post('/ringing', function(req, res) {
     console.log(req.body);
+    res.send(req.body);
 });
 module.exports = router;

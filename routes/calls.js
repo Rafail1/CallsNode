@@ -36,7 +36,7 @@ router.post('/addMissed', function(req, res) {
     res.send(req.body.id);
 });
 router.post('/outstart', function(req, res) {
-    console.log('outstart');
+    console.log(req.body);
     res.send('ok');
 });
 router.post('/ringing', function(req, res) {

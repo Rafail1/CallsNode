@@ -15,6 +15,7 @@ router.post('/add', function(req, res) {
     if(!sampleFile) {
         return res.status(400).send('No record name.');
     }
+    console.log(req.body.json);
     const json = JSON.parse(req.body.json);
     const dir = config.RECORDS_DIR + json.client + '/';
 

@@ -34,6 +34,10 @@ router.post('/addMissed', function(req, res) {
     CallModel.addCall(req.body);
     res.send(req.body.id);
 });
+router.post('/outstart', function(req, res) {
+    console.log(req.body);
+    res.send(req.body);
+});
 router.post('/ringing', function(req, res) {
     console.log(req.body);
     res.send(req.body);

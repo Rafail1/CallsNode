@@ -11,7 +11,9 @@ const CallSchema = mongoose.Schema({
 CallSchema.statics.addCall = function (jsonCall) {
     const call = new this(jsonCall);
     call.save(function (err, res) {
-        console.log(err, res);
+        if(err) {
+            return;
+        };
     });
 };
 

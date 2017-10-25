@@ -6,13 +6,8 @@ const fs = require('fs'),
     mongoose = require('mongoose'),
     CallModel = mongoose.model('Call');
 
-
 const router = express.Router();
-
-
 router.post('/add', function(req, res) {
-
-
     if (!req.files)
         return res.status(400).send('No files were uploaded.');
     let sampleFile = req.files['rec'];
@@ -38,5 +33,8 @@ router.post('/add', function(req, res) {
 router.post('/addMissed', function(req, res) {
     CallModel.addCall(req.body);
     res.send(req.body.id);
+});
+router.post('/ringing', function(req, res) {
+    console.log(req.body);
 });
 module.exports = router;

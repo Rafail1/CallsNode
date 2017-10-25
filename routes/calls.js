@@ -17,11 +17,11 @@ router.post('/add', function(req, res) {
     }
     const json = JSON.parse(req.body.json);
     const dir = config.RECORDS_DIR + json.client + '/';
+    console.log(dir);
 
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
     }
-    console.log(dir);
 
     const audioFile = dir + sampleFile.name;
     sampleFile.mv(audioFile, function(err) {
